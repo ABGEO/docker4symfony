@@ -1,6 +1,19 @@
 version:  '3.7'
 
 services:
+
+  php:
+    image: php:${PHP_TAG}
+    container_name: "${PROJECT_NAME}_php"
+    environment:
+      WEB_DOCUMENT_ROOT: /var/www/html
+    volumes:
+      - ./app:/var/www/html
+    labels:
+      - 'traefik.backend=${PROJECT_NAME}_php'
+      - 'traefik.port=80'
+      - 'traefik.frontend.rule=Host:${PROJECT_BASE_URL}'
+
   mariadb:
     image: mariadb:${MARIADB_TAG}
     container_name: "${PROJECT_NAME}_mariadb"
