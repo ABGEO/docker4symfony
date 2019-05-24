@@ -5,7 +5,7 @@ services:
     image: abgeo/php-symfony:${PHP_TAG}
     container_name: "${PROJECT_NAME}_php"
     environment:
-      APACHE_DOCUMENT_ROOT: /var/www/html/web
+      APACHE_DOCUMENT_ROOT: /var/www/html/public
       DB_HOST: ${DB_HOST}
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASS}

@@ -59,6 +59,13 @@ bash:
 composer:
 	docker exec --user=${SERVER_USER} $(shell docker ps --filter name='^/$(PROJECT_NAME)_php' --format "{{ .ID }}") composer --working-dir=$(COMPOSER_ROOT) $(filter-out $@,$(MAKECMDGOALS))
 
+## symfony	:	Executes `php bin/console` command.
+##		To use "--flag" arguments include them in quotation marks.
+##		For example: make symfony "cache:clear"
+.PHONY: symfony
+symfony:
+	docker exec --user=${SERVER_USER} $(shell docker ps --filter name='^/$(PROJECT_NAME)_php' --format "{{ .ID }}") php bin/console $(filter-out $@,$(MAKECMDGOALS))
+
 ## logs	:	View containers logs.
 ##		You can optinally pass an argument with the service name to limit logs
 ##		logs php	: View `php` container logs.
