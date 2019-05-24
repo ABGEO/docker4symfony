@@ -13,7 +13,7 @@ services:
       DB_DRIVER: ${DB_DRIVER}
       COLUMNS: 80 # Set 80 columns for docker exec -it.
     volumes:
-      - ./app:/var/www/html
+      - ./${PROJECT_DIR}:/var/www/html
     labels:
       - 'traefik.backend=${PROJECT_NAME}_php'
       - 'traefik.port=80'
