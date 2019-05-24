@@ -2,10 +2,16 @@ version:  '3.7'
 
 services:
   php:
-    image: abgeo/php-with-mailhog:${PHP_TAG}
+    image: abgeo/php-symfony:${PHP_TAG}
     container_name: "${PROJECT_NAME}_php"
     environment:
-      WEB_DOCUMENT_ROOT: /var/www/html
+      APACHE_DOCUMENT_ROOT: /var/www/html/web
+      DB_HOST: ${DB_HOST}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASS}
+      DB_NAME: ${DB_NAME}
+      DB_DRIVER: ${DB_DRIVER}
+      COLUMNS: 80 # Set 80 columns for docker exec -it.
     volumes:
       - ./app:/var/www/html
     labels:

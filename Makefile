@@ -3,6 +3,7 @@ include .env
 default: up
 
 COMPOSER_ROOT ?= /var/www/html
+SERVER_USER ?= admin
 
 ## help	:	Print commands help.
 .PHONY: help
@@ -46,17 +47,17 @@ prune:
 ps:
 	@docker ps --filter name='$(PROJECT_NAME)*'
 
-## shell	:	Access `php` container via shell.
-.PHONY: shell
-shell:
-	docker exec -ti -e COLUMNS=$(shell tput cols) -e LINES=$(shell tput lines) $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") sh
+## bash	:	Access `php` container via bash.
+.PHONY: bash
+bash:
+	docker exec -ti --user=${SERVER_USER} -e COLUMNS=$(shell tput cols) -e LINES=$(shell tput lines) $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") bash
 
 ## composer	:	Executes `composer` command in a specified `COMPOSER_ROOT` directory (default is `/var/www/html`).
 ##		To use "--flag" arguments include them in quotation marks.
 ##		For example: make composer "update drupal/core --with-dependencies"
 .PHONY: composer
 composer:
-	docker exec $(shell docker ps --filter name='^/$(PROJECT_NAME)_php' --format "{{ .ID }}") composer --working-dir=$(COMPOSER_ROOT) $(filter-out $@,$(MAKECMDGOALS))
+	docker exec --user=${SERVER_USER} $(shell docker ps --filter name='^/$(PROJECT_NAME)_php' --format "{{ .ID }}") composer --working-dir=$(COMPOSER_ROOT) $(filter-out $@,$(MAKECMDGOALS))
 
 ## logs	:	View containers logs.
 ##		You can optinally pass an argument with the service name to limit logs
