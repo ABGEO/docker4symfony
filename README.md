@@ -6,7 +6,7 @@ Docker stack for Symfony projects
 | Container       | Versions                | Service name    | Image                              |
 | --------------- | -------------------     | --------------- | ---------------------------------- |
 | PHP with Apache | 7.3-apache<br>7.2-apache<br>7.1-apache<br>latest        | `php`           | [abgeo/php-symfony]                 |
-| MariaDB         | 10.3, 10.2, 10.1        | `mariadb`       | [wodby/mariadb]                    |
+| MariaDB         | 10.3, 10.2, 10.1        | `mariadb`       | [_/mariadb]                    |
 | Mailhog         | latest                  | `mailhog`       | [mailhog/mailhog]                  |
 | phpMyAdmin      | latest                  | `pma`           | [phpmyadmin/phpmyadmin]            |
 | Portainer       | latest                  | `portainer`     | [portainer/portainer]              |
@@ -21,4 +21,4 @@ This project is licensed under the MIT open source license.
 [mailhog/mailhog]: https://hub.docker.com/r/mailhog/mailhog
 [phpmyadmin/phpmyadmin]: https://hub.docker.com/r/phpmyadmin/phpmyadmin
 [portainer/portainer]: https://hub.docker.com/r/portainer/portainer
-[wodby/mariadb]: https://github.com/wodby/mariadb
+[_/mariadb]: https://hub.docker.com/_/mariadb
