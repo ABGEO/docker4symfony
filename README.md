@@ -5,7 +5,7 @@ Docker stack for Symfony projects
 
 | Container       | Versions                | Service name    | Image                              |
 | --------------- | -------------------     | --------------- | ---------------------------------- |
-| PHP             | 7.3-apache<br>7.2-apache<br>7.1-apache<br>latest        | `php`           | [abgeo/php-symfony]                 |
+| PHP with Apache | 7.3-apache<br>7.2-apache<br>7.1-apache<br>latest        | `php`           | [abgeo/php-symfony]                 |
 | MariaDB         | 10.3, 10.2, 10.1        | `mariadb`       | [wodby/mariadb]                    |
 | Mailhog         | latest                  | `mailhog`       | [mailhog/mailhog]                  |
 | phpMyAdmin      | latest                  | `pma`           | [phpmyadmin/phpmyadmin]            |
