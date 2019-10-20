@@ -2,7 +2,7 @@ version:  '3.7'
 
 services:
   php:
-    image: abgeo/php-symfony:${PHP_TAG}
+    image: abgeo/php-symfony:${PHP_VERSION}
     container_name: "${PROJECT_NAME}_php"
     environment:
       APACHE_DOCUMENT_ROOT: /var/www/html/public
