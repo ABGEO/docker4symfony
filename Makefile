@@ -1,6 +1,6 @@
 include .env
 
-default: up
+default: help
 
 COMPOSER_ROOT ?= /var/www/html
 SERVER_USER ?= admin
